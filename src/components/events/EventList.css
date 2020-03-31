@@ -1,0 +1,10 @@
+
+.card-image{
+    align-items: center;
+    display: inline-flex;
+}
+
+img{
+  padding:10px;
+    max-height: 70px;
+}

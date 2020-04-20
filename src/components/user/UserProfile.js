@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 import 'moment/locale/pl'
 
@@ -15,8 +15,7 @@ const UserProfile = (props) => {
 
     if (!auth.uid) return <Redirect to='/signin' />
     moment.locale('pl') // change language for displayed date
-    console.log(auth)
-    console.log(fsUsers)
+
     if(fsUsers){
     return (
 
@@ -61,10 +60,7 @@ const UserProfile = (props) => {
 
 
 const mapStateToProps = (state, ownProps) => {
-    const id = ownProps.match.params.id
-    const events = state.firestore.data.events;
-    const event = events ? events[id] : null;
-
+    
 
     return {
         auth: state.firebase.auth,

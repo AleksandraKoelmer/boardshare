@@ -14,7 +14,8 @@ class CreateEvent extends Component {
         gameType: '',
         duration: '',
         minAge: '',
-        description: ''
+        description: '',
+        numOfGamers: ''
 
     }
 
@@ -68,6 +69,10 @@ class CreateEvent extends Component {
                         <div className='input-field'>
                             <label htmlFor='minAge'>Minimalny wiek użytkowników</label>
                             <input type='number' id='minAge' onChange={this.handleChange}></input>
+                        </div>
+                        <div className='input-field'>
+                            <label htmlFor='numOfGamers'>Liczba graczy</label>
+                            <input type='number' id='numOfGamers' onChange={this.handleChange}></input>
                         </div>
                         <div className='input-field'>
                             <label htmlFor='description'>Opis wydarzenia</label>

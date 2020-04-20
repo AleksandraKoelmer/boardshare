@@ -1,8 +1,6 @@
 const initState = {
     events: [
-        { id: '1', eventTitle: 'dupa', city: 'Dziura', date: '23.04.2020' },
-        { id: '2', eventTitle: 'rtfd', city: 'Dupa', date: '25.04.2020' }
-    ]
+   ]
 };
 
 

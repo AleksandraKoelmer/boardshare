@@ -13,7 +13,7 @@ const Sidebar = (props) => {
     }
     const { auth } = props;
     if (auth.uid){
-        console.log(auth.uid)
+       
     return (
 
       
@@ -27,13 +27,13 @@ const Sidebar = (props) => {
             >
                 <SideNavItem divider />
                 <SideNavItem style = {sideNavItenStyle}><Link to={'/user/'+auth.uid}>Moje konto</Link></SideNavItem>
-                <SideNavItem style = {sideNavItenStyle}>Moje wydarzenia</SideNavItem>
+                <SideNavItem style = {sideNavItenStyle}><Link to={'/userevents/'+auth.uid}>Moje wydarzenia</Link></SideNavItem>
                 <SideNavItem style = {sideNavItenStyle}>Gry które udostępniasz</SideNavItem>
 
                 <SideNavItem divider />
 
                 <SideNavItem style = {sideNavItenStyle}>Dodaj grę do wypożyczenia</SideNavItem>
-                <SideNavItem style = {sideNavItenStyle}>Dodaj wydarzenie</SideNavItem>
+                <SideNavItem style = {sideNavItenStyle}><Link to={'/create'}>Dodaj wydarzenie</Link></SideNavItem>
                 
                 <SideNavItem divider />
 

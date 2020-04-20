@@ -7,24 +7,23 @@ import  moment from 'moment'
 import 'moment/locale/pl'
 
 const EventDetails = (props) => {
-    const { event, auth } = props;
+    const { event, auth,  } = props;
+    const eventId = window.location.href;
+    const id = eventId.split('event/')[1]
+    
     if (event) {
-        
+        console.log()
         if (!auth.uid) return <Redirect to='/signin' />
         moment.locale('pl') // change language for displayed date
         
         return (
-
-
-
-
             <div className='container'>
                 <div className='card'>
                     <div className='card-content'>
                         <span className='card-title'> {event.eventTitle} </span>
                         <p>Miasto: {event.city}</p>
                         <p>Data: {event.date}</p>
-                        <p>Liczba osób: {event.date} </p>
+                        <p>Liczba osób: {event.numOfGamers} </p>
                         <p>Typ gry: {event.gameType}</p>
                         <p>Czas gry: {event.duration}</p>
                         <p>Minimalny wiek: {event.minAge}</p>
@@ -33,6 +32,11 @@ const EventDetails = (props) => {
                             <Link to={'/'}>
                                 Powrót
                             </Link>
+
+                          {auth.uid!==event.authorId ? 
+                            <Link to={'/chat/'+ id} >
+                                Kontakt z organizatorem
+                            </Link> : null}
                         </div>
                         
                         <div className='card-action  grey-text'>
@@ -52,13 +56,12 @@ const EventDetails = (props) => {
         )
 
     }
-
-
 }
 
 
 const mapStateToProps = (state, ownProps) => {
     const id = ownProps.match.params.id
+    console.log(id)
     const events = state.firestore.data.events;
     const event = events ? events[id] : null;
 

@@ -7,9 +7,12 @@ import { compose } from 'redux';
 import EventList from '../events/EventList'
 
 class Dashboard extends Component {
+    
+  
+
     render() {
-        const { events, auth } = this.props;
-        console.log(events)
+        const { events } = this.props;
+  
 
         if (events) {
 
